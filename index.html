@@ -1,0 +1,132 @@
+﻿<!--
+-- ------------------------------------------------------------------------------
+-- Chrome Bookmarks Viewer
+--
+-- History
+-- 2021-05-14	jbress	created
+-- ------------------------------------------------------------------------------
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>Chrome Bookmarks viewer</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self'; base-uri 'none'; block-all-mixed-content">
+</head>
+<body>
+<form id="file-picker" enctype="multipart/form-data" method="post">
+<fieldset>
+<h3>View Chrome bookmarks</h3>
+<ol>
+<li>Select the bookmarks json file (e.g: &nbsp;<code>%LocalAppData%\Google\Chrome\User Data\Default\Bookmarks</code>)<br /><input type="file" accept=".json" id="fileinput"></li>
+<li>Click on&nbsp;<input type="button" id="btnLoad" class="btn" value="Load"></li>
+</ol>
+<br>
+</fieldset>
+</form>
+<div id="result"></div>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="parser.js"></script>
+<style>
+
+body
+{
+	margin: 0;
+	font: 13px "Open Sans", Verdana, Arial, sans-serif;
+	color: #212529;
+}
+
+code
+{
+	background-color: white;
+	font-size: 12px;
+}
+
+a
+{
+	text-decoration: none;
+	color: inherit;
+}
+
+	a:hover
+	{
+		text-decoration: underline;
+	}
+
+#file-picker
+{
+	background-color: aliceblue;
+}
+
+fieldset
+{
+	border: none;
+}
+
+li
+{
+	margin: 1rem 0;
+}
+
+.btn
+{
+	box-sizing: border-box;
+	cursor: pointer;
+	display: inline-block;
+	font-weight: 600;
+	position: relative;
+	text-align: center;
+	padding: 4px;
+	border: 1px solid black;
+	border-radius: 8px;
+	background-color: #efefef;
+}
+
+#result
+{
+	padding: 1rem;
+	line-height: 24px;
+}
+
+dl
+{
+	padding-left: 2rem;
+}
+
+	dl > .title
+	{
+		margin-left: -2rem;
+	}
+
+.title
+{
+	font-weight: bold;
+}
+
+.date
+{
+	color: hsl(0deg 0% 75%);
+	font-weight: normal;
+	margin-left: 1rem;
+}
+
+.sort-btn
+{
+	display: inline-block;
+	width: 12px;
+	margin-left: 4px;
+	padding: 0 3px;
+	border-radius: 4px;
+	text-align: center;
+	font-size: 12px;
+	background-color: #efefef;
+	cursor: pointer;
+}
+
+	.sort-btn.active
+	{
+		color: blue;
+	}
+</style>
+</body>
+</html>
